@@ -1,5 +1,6 @@
 package com.example.snowc.barbuddy2;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,15 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void weight(View v) {
         Button button = (Button) v;
-        ((Button) v).setText("Clicked");
+
         EditText simpleEditText = (EditText) findViewById(R.id.editText);
         String editTextValue = simpleEditText.getText().toString();
         int value = Integer.getInteger(editTextValue.toString());
+        ((Button) v).setText(value);
         weight = value;
 
     }
     public void time() {
         //System.Clock.elapsedRealtime();
+    }
+
+    public void goToMap(View view) {
+        Intent intent = new Intent(MainActivity.this, StreetViewPanoramaNavigationDemoActivity.class);
+        startActivity(intent);
     }
     /**public static double drinkScore(View v) {
      double drink;
